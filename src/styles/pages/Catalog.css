@@ -1,0 +1,224 @@
+.catalog-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    min-height: 100vh;
+    overflow: hidden;
+    padding: 20px;
+}
+
+.catalog-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.catalog-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+.catalog-photo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 2;
+}
+
+.catalog-overlay {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    width: 100%;
+}
+
+.catalog-title {
+    font-size: 2em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+    margin-top: 60px;
+}
+
+.catalog-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 20px;
+    justify-content: center;
+    margin: 30px auto 0;
+    max-width: 1200px;
+}
+
+.book-card {
+    background-color: rgba(0, 0, 0, 0.8);
+    border: 1px solid #ddd;
+    width: 220px;
+    height: 290px;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 10px;
+    margin-bottom: 10px;
+    color: #fff;
+    justify-content: space-between;
+    position: relative;
+}
+
+.book-card:hover {
+    transform: scale(1.05);
+}
+
+.bestseller-badge {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: orange;
+    color: white;
+    padding: 5px 10px;
+    border-radius: 5px;
+    font-size: 0.8em;
+    font-weight: bold;
+}
+
+.book-image {
+    width: 80px;
+    height: 120px;
+    object-fit: cover;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.book-details {
+    text-align: center;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.book-title {
+    font-size: 1em;
+    margin-bottom: 5px;
+}
+
+.book-author {
+    font-size: 0.9em;
+    margin-bottom: 5px;
+    color: #bbb;
+}
+
+.book-price {
+    font-size: 1em;
+    color: #28a745;
+    margin: 8px;
+}
+
+.add-to-cart-button {
+    padding: 6px 10px;
+    margin: 5px;
+    background-color: rgba(196, 65, 65, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease, transform 0.1s;
+}
+
+.add-to-cart-button.clicked {
+    background-color: rgba(40, 167, 69, 0.8);
+    transform: scale(1.1);
+}
+
+.add-to-cart-button:hover {
+    background-color: rgba(139, 0, 0, 0.8);
+}
+
+.pagination {
+    display: flex;
+    justify-content: center;
+    height: 60px;
+    align-items: center;
+}
+
+.pagination button {
+    background-color: rgba(196, 65, 65, 0.8);
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    padding: 5px 10px;
+    margin: 0 5px;
+    font-size: 0.8em;
+    transition: background-color 0.3s ease;
+}
+
+.pagination button:hover {
+    background-color: rgba(139, 0, 0, 0.8);
+}
+
+.pagination button.active {
+    background-color: rgba(40, 167, 69, 0.8);
+}
+
+@media (max-width: 1200px) {
+    .catalog-grid {
+        grid-template-columns: repeat(3, 1fr);
+        max-width: 900px;
+    }
+}
+
+@media (max-width: 768px) {
+    .catalog-title {
+        font-size: 2em;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(2, 1fr);
+        max-width: 600px;
+    }
+
+    .book-card {
+        width: auto;
+    }
+
+    .book-image {
+        width: 60px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 480px) {
+    .catalog-title {
+        font-size: 1.5em;
+    }
+
+    .catalog-grid {
+        grid-template-columns: repeat(1, 1fr);
+        max-width: 300px;
+    }
+
+    .book-card {
+        width: auto;
+    }
+
+    .book-image {
+        width: 50px;
+        height: 75px;
+    }
+}

@@ -1,0 +1,125 @@
+
+
+.home-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
+    overflow: hidden;
+}
+
+.home-photo {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+}
+
+.home-photo img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block; /* Убираем возможные пробелы под изображением */
+}
+
+.home-photo::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.3);
+    z-index: 2;
+}
+
+.home-header {
+    position: relative;
+    z-index: 3;
+    color: #fff;
+    text-align: center;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.home-description {
+    font-size: 3em;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.7);
+    margin-bottom: 5px;
+}
+
+.quote {
+    font-size: 1.2em;
+    font-style: italic;
+    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.7);
+    max-width: 80%;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.learn-more-btn {
+    display: inline-block;
+    background-color: rgba(231, 76, 60, 0.56); /* Полу-прозрачный начальный цвет кнопки */
+    color: #fff;
+    padding: 10px 20px;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 1em;
+    transition: background-color 0.3s ease, color 0.3s ease; /* Плавный переход цвета */
+}
+
+.learn-more-btn:hover {
+    background-color: rgba(192, 57, 43, 0.7); /* Полу-прозрачный цвет при наведении */
+    color: #fff; /* Цвет текста при наведении */
+}
+
+/* Media queries for responsiveness */
+@media (max-width: 1024px) {
+    .home-title {
+        font-size: 2.5em;
+    }
+
+    .home-subtitle {
+        font-size: 1.2em;
+    }
+
+    .home-button {
+        font-size: 0.9em;
+    }
+}
+
+@media (max-width: 768px) {
+    .home-title {
+        font-size: 2em;
+    }
+
+    .home-subtitle {
+        font-size: 1em;
+    }
+
+    .home-button {
+        font-size: 0.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    .home-title {
+        font-size: 1.5em;
+    }
+
+    .home-subtitle {
+        font-size: 0.8em;
+    }
+
+    .home-button {
+        font-size: 0.7em;
+    }
+}
