@@ -1,5 +1,7 @@
 const express = require('express');
 const cors = require('cors');
+const path = require('path');
+
 const app = express();
 const port = 5003;
 
@@ -75,6 +77,12 @@ app.delete('/api/cart/:id', (req, res) => {
     const id = parseInt(req.params.id, 10);
     cart = cart.filter(item => item.id !== id);
     res.json(cart);
+});
+
+app.use(express.static(path.join(__dirname, 'build')));
+
+app.get('*', (req, res) => {
+    res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
 app.listen(port, () => {
